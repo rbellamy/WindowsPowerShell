@@ -1,0 +1,7 @@
+data/HgUtils.ps1.i
+data/README.txt.i
+data/Settings.ps1.i
+data/HgTabExpansion.ps1.i
+data/HgPrompt.ps1.i
+data/profile.example.ps1.i
+data/posh-hg.psm1.i
