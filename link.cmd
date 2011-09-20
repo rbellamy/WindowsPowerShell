@@ -1,1 +1,1 @@
-mklink /j %HOMEDRIVE%%HOMEPATH%\Documents\WindowsPowerShell D:\Development\WindowsPowerShell
+if not exist "%HOMEDRIVE%%HOMEPATH%\Documents\WindowsPowerShell" (mklink /j "%HOMEDRIVE%%HOMEPATH%\Documents\WindowsPowerShell" "D:\Development\WindowsPowerShell")
