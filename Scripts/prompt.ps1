@@ -5,6 +5,9 @@ if ($currentPath.startswith('Microsoft.PowerShell.Core\FileSystem::'))
   $currentPath = $currentPath.Substring(38)
 }
 
+$currentDateTime = Get-Date
+
+Write-Host $currentDateTime.ToString('yyyy-MM-dd HH:mm:ss') -ForegroundColor Cyan
 Write-Host $currentPath -foregroundcolor  Cyan
 
 Enable-GitColors
