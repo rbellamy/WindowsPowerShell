@@ -10,6 +10,24 @@ $ModulePath = $ProfilePath + "\Modules"
 . $ProfilePath\Scripts\prepend-path.ps1 $ScriptPath
 $ENV:PSModulePath = "$ModulePath;" + $ENV:PSModulePath
 
+function Append-Title {
+	Param([String] $title); 
+	$Host.Ui.RawUi.WindowTitle = $Host.Ui.RawUi.WindowTitle + '(' + $title + ')'
+}
+
+#set the screen color based on the user role
+$Host.UI.RawUI.Foregroundcolor="White"
+$Host.UI.RawUI.Backgroundcolor="Black"
+Append-Title "User"
+
+$Local:WindowsIdentity = [System.Security.Principal.WindowsIdentity]::GetCurrent()
+$Local:WindowsPrincipal = New-Object 'System.Security.Principal.WindowsPrincipal' $Local:WindowsIdentity
+if ($local:windowsPrincipal.IsInRole("Administrators") -eq 1) {
+  $Host.UI.RawUI.Backgroundcolor="DarkRed"
+  Append-Title "Administrator"
+}
+Clear-Host
+
 #Import-Module PSCX -ArgumentList $ScriptPath\Pscx.UserPreferences.ps1
 ## I determine which modules to pre-load here (in this SIGNED script)
 #$AutoModules = 'Autoload', 'posh-git', 'posh-hg', 'Strings', 'Authenticode', 'HttpRest', 'PoshCode', 'PowerTab', 'ResolveAliases', 'PSCX'
@@ -39,10 +57,6 @@ if($AutoRunErrors) { $AutoRunErrors | Out-String | Write-Host -Fore Red }
 ## Relax the code signing restriction so we can actually get work done
 Set-ExecutionPolicy RemoteSigned Process
 
-function Append-Title {
-	Param([String] $title); 
-	$Host.Ui.RawUi.WindowTitle = $Host.Ui.RawUi.WindowTitle + '(' + $title + ')'
-}
 function IsCurrentDirectoryARepository($type) {
     if ((Test-Path $type) -eq $TRUE) {
         return $TRUE
@@ -64,18 +78,6 @@ function IsCurrentDirectoryARepository($type) {
 # always set the location to the $home path
 Set-Location $Home
 
-#set the screen color based on the user role
-$Host.UI.RawUI.Foregroundcolor="White"
-$Host.UI.RawUI.Backgroundcolor="Black"
-Append-Title "User"
-
-$Local:WindowsIdentity = [System.Security.Principal.WindowsIdentity]::GetCurrent()
-$Local:WindowsPrincipal = New-Object 'System.Security.Principal.WindowsPrincipal' $Local:WindowsIdentity
-if ($local:windowsPrincipal.IsInRole("Administrators") -eq 1) {
-  $Host.UI.RawUI.Backgroundcolor="DarkRed"
-  Append-Title "Administrator"
-}
-
 # PS's version of cd.. (no space) and recursive directory search
 # since I can't remember the real commands
 function cd.. { cd .. }
@@ -94,10 +96,10 @@ function TabExpansion($line, $lastWord) {
     $lastBlock = [regex]::Split($line, '[|;]')[-1]
     
     switch -regex ($lastBlock) {
+        # Execute git tab completion for all git-related commands
+        'git (.*)' { GitTabExpansion($lastBlock) }
         # mercurial and tortoisehg tab expansion
         '(hg|thg) (.*)' { HgTabExpansion($lastBlock) }
-        # Execute git tab completion for all git-related commands
-        'git (.*)' { GitTabExpansion $lastBlock }
         # Fall back on existing tab expansion
         default { DefaultTabExpansion $line $lastWord }
     }
