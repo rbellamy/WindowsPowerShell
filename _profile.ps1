@@ -2,13 +2,6 @@
 ## but at least now, they can't tamper with any of the scripts that I auto-load!
 #Set-ExecutionPolicy AllSigned Process
 ## add powershell profile folder and utilities folder to the path
-$ProfilePath = Split-Path $Profile
-Write-Host $ProfilePath
-$ScriptPath = $ProfilePath + "\Scripts"
-$ModulePath = $ProfilePath + "\Modules"
-
-. $ProfilePath\Scripts\prepend-path.ps1 $ScriptPath
-$ENV:PSModulePath = "$ModulePath;" + $ENV:PSModulePath
 
 function Append-Title {
 	Param([String] $title); 
@@ -18,20 +11,30 @@ function Append-Title {
 #set the screen color based on the user role
 $Host.UI.RawUI.Foregroundcolor="White"
 $Host.UI.RawUI.Backgroundcolor="Black"
-Append-Title "User"
 
 $Local:WindowsIdentity = [System.Security.Principal.WindowsIdentity]::GetCurrent()
 $Local:WindowsPrincipal = New-Object 'System.Security.Principal.WindowsPrincipal' $Local:WindowsIdentity
-if ($local:windowsPrincipal.IsInRole("Administrators") -eq 1) {
-  $Host.UI.RawUI.Backgroundcolor="DarkRed"
-  Append-Title "Administrator"
+if ($Local:WindowsPrincipal.IsInRole("Administrators") -eq 1) {
+	$Host.UI.RawUI.Backgroundcolor="DarkRed"
+	Append-Title "Administrator"
+} else {
+	Append-Title "User"
 }
 Clear-Host
 
+$ProfilePath = Split-Path $Profile
+Write-Host $ProfilePath
+$ScriptPath = $ProfilePath + "\Scripts"
+$ModulePath = $ProfilePath + "\Modules"
+
+. $ProfilePath\Scripts\prepend-path.ps1 $ScriptPath
+$ENV:PSModulePath = "$ModulePath;" + $ENV:PSModulePath
+
 #Import-Module PSCX -ArgumentList $ScriptPath\Pscx.UserPreferences.ps1
-## I determine which modules to pre-load here (in this SIGNED script)
+## I determine which modules to pre-load here (WAS - in this SIGNED script)
 #$AutoModules = 'Autoload', 'posh-git', 'posh-hg', 'Strings', 'Authenticode', 'HttpRest', 'PoshCode', 'PowerTab', 'ResolveAliases', 'PSCX'
-$AutoModules = 'Autoload', 'posh-git', 'posh-hg', 'PoshCode'
+$AutoModules = 'Autoload', 'PSCX', 'PoshWSUS', 'posh-git', 'PoshCode'
+#$AutoModules = 'Autoload', 'PSCX', 'PoshWSUS', 'PoshCode'
 
 ###################################################################################################
 ## Preload all the modules in AutoModules, printing out their names in color based on status
@@ -56,24 +59,6 @@ if($AutoRunErrors) { $AutoRunErrors | Out-String | Write-Host -Fore Red }
 
 ## Relax the code signing restriction so we can actually get work done
 Set-ExecutionPolicy RemoteSigned Process
-
-function IsCurrentDirectoryARepository($type) {
-    if ((Test-Path $type) -eq $TRUE) {
-        return $TRUE
-    }
-
-    # Test within parent dirs
-    $CheckIn = (Get-Item .).Parent
-    while ($CheckIn -ne $NULL) {
-        $PathToTest = $CheckIn.FullName + '/' + $type;
-        if ((Test-Path $PathToTest) -eq $TRUE) {
-            return $TRUE
-        } else {
-            $CheckIn = $CheckIn.Parent
-        }
-    }
-    return $FALSE
-}
 
 # always set the location to the $home path
 Set-Location $Home
