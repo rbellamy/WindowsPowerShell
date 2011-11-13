@@ -19,7 +19,7 @@
     CD_GetChildItem = $false          # Display the contents of new provider location after using 
                                       # cd (Set-LocationEx).  Mutually exclusive with CD_EchoNewLocation.
                                       
-    CD_EchoNewLocation = $true        # Display new provider location after using cd (Set-LocationEx).
+    CD_EchoNewLocation = $false       # Display new provider location after using cd (Set-LocationEx).
                                       # Mutually exclusive with CD_GetChildItem.
     
     TextEditor = 'Notepad.exe'        # Default text editor used by the Edit-File function

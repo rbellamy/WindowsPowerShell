@@ -30,11 +30,11 @@ $ModulePath = $ProfilePath + "\Modules"
 . $ProfilePath\Scripts\prepend-path.ps1 $ScriptPath
 $ENV:PSModulePath = "$ModulePath;" + $ENV:PSModulePath
 
-#Import-Module PSCX -ArgumentList $ScriptPath\Pscx.UserPreferences.ps1
+Import-Module PSCX -ArgumentList $ScriptPath\Pscx.UserPreferences.ps1
 ## I determine which modules to pre-load here (WAS - in this SIGNED script)
 #$AutoModules = 'Autoload', 'posh-git', 'posh-hg', 'Strings', 'Authenticode', 'HttpRest', 'PoshCode', 'PowerTab', 'ResolveAliases', 'PSCX'
-$AutoModules = 'Autoload', 'PSCX', 'PoshWSUS', 'posh-git', 'PoshCode'
-#$AutoModules = 'Autoload', 'PSCX', 'PoshWSUS', 'PoshCode'
+$AutoModules = 'Autoload', 'posh-git', 'posh-hg', 'PoshCode'
+#$AutoModules = 'Autoload', 'posh-git', 'posh-hg', 'PoshCode'
 
 ###################################################################################################
 ## Preload all the modules in AutoModules, printing out their names in color based on status

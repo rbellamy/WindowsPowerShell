@@ -32,13 +32,13 @@ $currentDateTime = Get-Date
 Write-Host $currentDateTime.ToString('yyyy-MM-dd HH:mm:ss') -ForegroundColor Cyan
 Write-Host $currentPath -foregroundcolor  Cyan
 
-if (Test-Path Function:Enable-GitColors) {
+if (Test-Path Function:Get-GitStatus) {
 	$gitEnabled = $true
 	Enable-GitColors
 	$GitPromptSettings.BeforeText = "git["
 }
 
-if (Test-Path Variable:script:$HgPromptSettings) {
+if (Test-Path Function:Get-GitStatus) {
 	$hgEnabled = $true
 	$HgPromptSettings.BeforeText = "hg["
 }
@@ -47,18 +47,22 @@ if (Test-Path Variable:script:$HgPromptSettings) {
 #Write-Host $GitPromptSettings
 #$Host.UI.RawUI.ForegroundColor = $GitPromptSettings.DefaultForegroundColor
 
-if ((Get-Location -stack).Count -gt 0) { 
-	Write-Host ("+" * ((Get-Location -stack).Count) + " ") -NoNewLine -ForegroundColor Yellow 
-}
+#if ((Get-Location -stack).Count -gt 0) { 
+#	Write-Host ("+" * ((Get-Location -stack).Count) + " ") -NoNewLine -ForegroundColor Yellow 
+#}
 
-if ($gitEnabled -and (IsCurrentDirectoryARepository ".git" -eq $true)) {
+if (($gitEnabled -eq $true) -and (IsCurrentDirectoryARepository ".git" -eq $true)) {
     # Git Prompt
     $Global:GitStatus = Get-GitStatus
     Write-GitStatus $GitStatus
-} elseif ($hgEnabled -and (IsCurrentDirectoryARepository ".hg" -eq $true)) {
+	Write-Host
+}
+
+if (($hgEnabled -eq $true) -and (IsCurrentDirectoryARepository ".hg" -eq $true)) {
     # Mercurial Prompt
     $Global:HgStatus = Get-HgStatus
     Write-HgStatus $HgStatus
+	Write-Host
 }
 
 Write-Host ("»") -NoNewLine -ForegroundColor Green

@@ -1,9 +1,9 @@
-$local:command_usage =
+$Local:Command_Usage =
 "usage: prepend-path path-to-be-added
 "
 
-if ($args.length -lt 1) { return ($command_usage) }
+if ($args.Length -lt 1) { return ($Command_Usage) }
 
-$local:oldPath = get-content Env:\Path
-$local:newPath = $args[0].ToString() + ";" + $local:oldPath
-set-content Env:\Path $local:newPath
+$Local:oldPath = get-content Env:\Path
+$Local:newPath = $args[0].ToString() + ";" + $local:oldPath
+Set-Content Env:\Path $Local:newPath
