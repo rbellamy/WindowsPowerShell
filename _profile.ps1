@@ -30,6 +30,7 @@ $ModulePath = $ProfilePath + "\Modules"
 . $ProfilePath\Scripts\prepend-path.ps1 $ScriptPath
 $ENV:PSModulePath = "$ModulePath;" + $ENV:PSModulePath
 
+## Maybe import PSCX - these extensions seem to have really bad behavior around getting help (crashes my powershell)
 Import-Module PSCX -ArgumentList $ScriptPath\Pscx.UserPreferences.ps1
 ## I determine which modules to pre-load here (WAS - in this SIGNED script)
 #$AutoModules = 'Autoload', 'posh-git', 'posh-hg', 'Strings', 'Authenticode', 'HttpRest', 'PoshCode', 'PowerTab', 'ResolveAliases', 'PSCX'
