@@ -38,7 +38,7 @@ $ModulePath = $ProfilePath + "\Modules"
 #Import-Module Pscx -ArgumentList $ScriptPath\Pscx.UserPreferences.ps1
 ## I determine which modules to pre-load here (WAS - in this SIGNED script)
 #$AutoModules = 'Autoload', 'posh-git', 'posh-hg', 'Strings', 'Authenticode', 'HttpRest', 'PoshCode', 'PowerTab', 'ResolveAliases', 'PSCX'
-$AutoModules = 'Autoload', 'posh-git', 'posh-hg', 'PoshCode'
+$AutoModules = 'Autoload', 'posh-git', 'posh-hg', 'PoshCode', 'posh-flow'
 #$AutoModules = 'Autoload', 'posh-git', 'posh-hg', 'PoshCode'
 
 ###################################################################################################
