@@ -43,3 +43,4 @@ find-to-set-alias 'C:\Program Files*\Notepad++' notepad++.exe npp
 find-to-set-alias 'C:\Program Files*\Programmer''s Notepad' pn.exe pn
 find-to-set-alias 'C:\Program Files*\*SQLite*' sqlite3.exe sqlite
 #find-to-set-alias 'D:\Development\nant-0.90-bin\*' nant.exe nant
+find-to-set-alias 'C:\Program Files*\PowerGUI' ScriptEditor.exe se

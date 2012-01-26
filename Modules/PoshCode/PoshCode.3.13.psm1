@@ -1,19 +1,18 @@
-####################################################################################################
+﻿####################################################################################################
 ## Script Name:     PoshCode Module
 ## Created On:      
 ## Author:          Joel 'Jaykul' Bennett
 ## File:            PoshCode.psm1
 ## Usage:          
-## Version:         3.14
+## Version:         3.13
 ## Purpose:         Provides cmdlets for working with scripts from the PoshCode Repository:
 ##											Get-PoshCodeUpgrade - get the latest version of this script from the PoshCode server
 ## 											Get-PoshCode  - Search for and download code snippets
 ## 											New-PoshCode  - Upload new code snippets
 ## 											Get-WebFile   - Download
 ## Requirements:    PowerShell Version 2
-## Last Updated:    03/04/2011
+## Last Updated:    07/14/2010
 ## History:
-##                  3.14 2011-03-04 - Fixed PowerShell 3.0 Regression :-P
 ##                  3.13 2010-08-04 - Fixed proxy credentials for download (oops)
 ##                                  - Fixed WebException handling (e.g.: 404 errors) on Get-WebFile (only report one error, and make it nicer)
 ##                                  - Fixed test for $filename so it doesn't throw if $filename is empty
@@ -389,8 +388,7 @@ PROCESS {
                                           (($Signature.SignerCertificate.Thumbprint -eq "4F8842037D878C1FCDC6FD1313B200449716C353") -or
                      ($Signature.SignerCertificate.Thumbprint -eq "7DEFA3C6C2138C05AAA135FB8096332DEB9603E1"))
                     ) -or $Signature.Status -eq "Valid" )
-      } catch { }
-	  return $result
+      } catch { } finally { return $result }
    }
 }
 }
@@ -573,7 +571,7 @@ function Set-DownloadFlag {
 .Parameter Passthru
 	If set, outputs the FileInfo object
 .Parameter ZoneId
-   THe Zone you want to mark the file with. Defaults to the security zone for PoshCode
+   THe Zone you want to mark the file with. Defaults to 4
 #>
 [CmdletBinding()]
 PARAM (
@@ -583,7 +581,7 @@ PARAM (
    $Path
 ,
    [Parameter(Position=1, Mandatory=$false)]
-   [System.Security.SecurityZone]$Zone = $([System.Security.Policy.Zone]::CreateFromUrl( $PoshCode ))
+   [ZoneIdentifier]$Zone = "Untrusted"
 ,
    [Switch]$Passthru
 )
@@ -660,7 +658,7 @@ Process {
       while($zone = $reader.ReadLine()) {
          $zone = $zone -split "="
          if($zone.Count -lt 2) { break }
-         Add-Member -in $out -Type NoteProperty -Name $zone[0] -value ([System.Security.SecurityZone]$zone[1])
+         Add-Member -in $out -Type NoteProperty -Name $zone[0] -value ([ZoneIdentifier]$zone[1])
       }
       $out
    } finally {
@@ -873,17 +871,8 @@ Process {
 }
 }
 
-if(Test-Path $PsScriptRoot\NTFS.dll) {
-   Add-Type -Path $PsScriptRoot\NTFS.dll
-} else {
-   Write-Warning "NTFS.dll not found, creating from source (If you see this warning twice, you should investigate)"
-Add-Type -OutputAssembly $PsScriptRoot\NTFS.dll -TypeDefinition @'
-using System;
-using System.IO;
-using System.Collections;
-using System.Runtime.InteropServices;
-using Microsoft.Win32.SafeHandles;
 
+Add-Type -TypeDefinition @'
 public enum PoshCodeLanguage {
    asp,                       
    bash,
@@ -893,6 +882,24 @@ public enum PoshCodeLanguage {
    xml,
    text
 }
+'@
+
+Add-Type -TypeDefinition @'
+public enum ZoneIdentifier {
+   Trusted = 1,
+   Intranet = 2,
+   Internet = 3,
+   Untrusted = 4
+}
+'@
+
+Add-Type -TypeDefinition @'
+using System;
+using System.IO;
+using System.Collections;
+using System.Runtime.InteropServices;
+using Microsoft.Win32.SafeHandles;
+
 
 ///<summary>
 ///Encapsulates access to alternative data streams of an NTFS file.
@@ -1432,7 +1439,6 @@ namespace PoshCodeNTFS {
 }
 '@
 
-}
 
 Set-Alias block Set-DownloadFlag
 Set-Alias unblock Remove-DownloadFlag
@@ -1445,8 +1451,8 @@ Export-ModuleMember Get-PoshCode, New-PoshCode, Remove-DownloadFlag, Set-Downloa
 # SIG # Begin signature block
 # MIIRDAYJKoZIhvcNAQcCoIIQ/TCCEPkCAQExCzAJBgUrDgMCGgUAMGkGCisGAQQB
 # gjcCAQSgWzBZMDQGCisGAQQBgjcCAR4wJgIDAQAABBAfzDtgWUsITrck0sYpfvNR
-# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUdUGru9q1e87Grmaed5CnE1LE
-# 2TKggg5CMIIHBjCCBO6gAwIBAgIBFTANBgkqhkiG9w0BAQUFADB9MQswCQYDVQQG
+# AgEAAgEAAgEAAgEAAgEAMCEwCQYFKw4DAhoFAAQUNWz/vdYO89Kjl2S94gB2QVPf
+# itGggg5CMIIHBjCCBO6gAwIBAgIBFTANBgkqhkiG9w0BAQUFADB9MQswCQYDVQQG
 # EwJJTDEWMBQGA1UEChMNU3RhcnRDb20gTHRkLjErMCkGA1UECxMiU2VjdXJlIERp
 # Z2l0YWwgQ2VydGlmaWNhdGUgU2lnbmluZzEpMCcGA1UEAxMgU3RhcnRDb20gQ2Vy
 # dGlmaWNhdGlvbiBBdXRob3JpdHkwHhcNMDcxMDI0MjIwMTQ1WhcNMTIxMDI0MjIw
@@ -1527,11 +1533,11 @@ Export-ModuleMember Get-PoshCode, New-PoshCode, Remove-DownloadFlag, Set-Downloa
 # YXRlIFNpZ25pbmcxODA2BgNVBAMTL1N0YXJ0Q29tIENsYXNzIDIgUHJpbWFyeSBJ
 # bnRlcm1lZGlhdGUgT2JqZWN0IENBAgFRMAkGBSsOAwIaBQCgeDAYBgorBgEEAYI3
 # AgEMMQowCKACgAChAoAAMBkGCSqGSIb3DQEJAzEMBgorBgEEAYI3AgEEMBwGCisG
-# AQQBgjcCAQsxDjAMBgorBgEEAYI3AgEWMCMGCSqGSIb3DQEJBDEWBBTSc75RCFqu
-# /vORBPGwtDJBnm6yLDANBgkqhkiG9w0BAQEFAASCAQAy2poZ0KR/X+cBUbHQgKQA
-# Taa80I/rHQjTY6WPe9XNpbSbnAEg/5sHw9yZ8eHJStLP/P14hPW1icvFL5sec9Sn
-# NktmkAREscr+SMWfAh6zQTPHxxjt//q+FTqPQzN6jlEolFg6VZa3826Kp0rzXmKo
-# cSdSm9CVXz7+EvR9Kiq+5BcQQWhGiDsdgaWcj7nK03bDmSFgNrRWVXIosFhS+Z7g
-# VyTlVzGmVfP3qGu1nJNacDun4ZRrK1JmNDHJdA3MP2thtKA0FOJdGcRQjb5E3YG1
-# FQre33dOXRp5yu+R25WWTrxK7/Qe08OnnVu+SC7PAG2DfIddVsg3Jneju4QCgKxi
+# AQQBgjcCAQsxDjAMBgorBgEEAYI3AgEWMCMGCSqGSIb3DQEJBDEWBBQlmhi/IwaS
+# DoD7e6VQ2D8hA2ZmJTANBgkqhkiG9w0BAQEFAASCAQAG6GGvK30WnUHcIWGC9eFQ
+# 1feEWgLb25aQXOwLFdZqELqwEb4zPcc6simiwM5EyhIlT0IwNnpjbleeuDGbuDKt
+# CKGJXCKGjRe11lgTaw7VMO9pY6q7hGroYJGFBnUNqukMGJxQLl22072BXy+mRZst
+# sUe/c43joWmvxu7UkFG+cDLJxl3CMQJOMn5csItN6hvL+BrqHtfvpVx9zzx9MglN
+# vS56SicBF7wNhYQOfF3DfrmIYD2SULA52u7sgaBRCPrD4c7Q1FhhW3oTjtcjWTqE
+# gv62MQ60yiJqkGrN5jUU2lrHZNheDbWpUTIYtDhJZnihsQCBYaeV2CfDXtuJL3In
 # SIG # End signature block
