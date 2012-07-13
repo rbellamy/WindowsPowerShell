@@ -19,7 +19,7 @@ if ($foldersearch.contains('*') -or $foldersearch.contains('?')) {
 
 $files = @($foldersearch | %{ Get-ChildItem $_ -Recurse -Filter $filename -ErrorAction SilentlyContinue })
 
-if ($files -eq $null) {
+if ($files -eq $null -or $files[0].FullName -eq $null) {
     if ($quiet -eq $false) {
         write-warning ("Could not find " + $filename + " in searched paths:")
         $foldersearch | %{ write-warning ("  " + $_) }
