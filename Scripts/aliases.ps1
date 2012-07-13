@@ -2,8 +2,8 @@
 # some common aliases
 # zip alias for 7za since powershell can't execute commands starting with digits
 set-alias zip 7za
-set-alias su elevate-process
-Set-Alias vsrefs VSSolutionReferences
+#set-alias su elevate-process
+#Set-Alias vsrefs VSSolutionReferences
 #set-alias ls 'ls -l'
 #set-alias dir 'ls -G'
 
@@ -27,8 +27,8 @@ Set-Alias vsrefs VSSolutionReferences
 #find-to-set-alias 'c:\Python25*' python.exe cpy25 
 #find-to-set-alias 'c:\Python26*' python.exe cpy26 
 
-find-to-set-alias 'c:\program files*\Microsoft Visual Studio 9.0\Common7\IDE' devenv.exe vs2008
-find-to-set-alias 'c:\program files*\Microsoft Visual Studio 10.0\Common7\IDE' devenv.exe vs
+#find-to-set-alias 'c:\program files*\Microsoft Visual Studio 9.0\Common7\IDE' devenv.exe vs2008
+#find-to-set-alias 'c:\program files*\Microsoft Visual Studio 10.0\Common7\IDE' devenv.exe vs
 #find-to-set-alias 'c:\program files*\Microsoft Visual Studio 9.0\Common7\IDE' tf.exe tf
 find-to-set-alias 'C:\Windows\Microsoft.NET\Framework\v3.5' msbuild.exe msbuild35
 find-to-set-alias 'C:\Windows\Microsoft.NET\Framework\v4.0.*' msbuild.exe msbuild40
