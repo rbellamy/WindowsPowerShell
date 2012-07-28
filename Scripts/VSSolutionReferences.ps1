@@ -79,7 +79,7 @@ Get-Content -Path $Path |
                     }
                 } -PassThru 
             }
-			 $Project.SelectNodes('/x:Project/x:ItemGroup/x:WebReferenceUrl', $nm) |
+			$Project.SelectNodes('/x:Project/x:ItemGroup/x:WebReferenceUrl', $nm) |
             ForEach-Object {
                 $RefPath = $ProjectRoot | Join-Path -ChildPath $_.RelPath
 				
