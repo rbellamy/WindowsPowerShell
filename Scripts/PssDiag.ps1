@@ -103,9 +103,10 @@ function Move-Directories {
     }
 }
 
+$remoteServer = "SERVER1"
 $supportFolderPath = "C:\Analysis"
 $outputFolderPath = "$supportFolderPath\Output"
-$remoteFolderPath = "\\BUSSISLOG\AnalysisData\SQLDiag\"
+$remoteFolderPath = "\\$remoteServer\AnalysisData\SQLDiag\"
 
 New-Item $outputFolderPath -Force -Type Container
 

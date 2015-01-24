@@ -32,7 +32,7 @@ $ModulePath = $ProfilePath + "\Modules"
 ## If the line is un-commented, and the modules path has already been added (e.g. as a result of
 ## being in the profile path, if this folder is symlinked to %USERPROFILE%\Documents), then you 
 ## will see modules available twice.
-#$ENV:PSModulePath = "$ModulePath;" + $ENV:PSModulePath
+$ENV:PSModulePath = "$ModulePath;" + $ENV:PSModulePath
 
 ## Maybe import PSCX - these extensions seem to have really bad behavior around getting help (crashes my powershell)
 #Import-Module Pscx -ArgumentList $ScriptPath\Pscx.UserPreferences.ps1
@@ -66,7 +66,7 @@ if($AutoRunErrors) { $AutoRunErrors | Out-String | Write-Host -Fore Red }
 Set-ExecutionPolicy RemoteSigned process
 
 # always set the location to the $home path
-Set-Location $Home
+Set-Location $HOME
 
 # PS's version of cd.. (no space) and recursive directory search
 # since I can't remember the real commands

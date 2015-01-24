@@ -1,7 +1,15 @@
 # For backwards compatibility
 $global:HgPromptSettings = $global:PoshHgSettings
 
-function Write-HgStatus($status = (get-hgStatus)) {
+function Write-Prompt($Object, $ForegroundColor, $BackgroundColor = -1) {
+    if ($BackgroundColor -lt 0) {
+        Write-Host $Object -NoNewLine -ForegroundColor $ForegroundColor
+    } else {
+        Write-Host $Object -NoNewLine -ForegroundColor $ForegroundColor -BackgroundColor $BackgroundColor
+    }
+}
+
+function Write-HgStatus($status = (get-hgStatus $global:PoshHgSettings.GetFileStatus $global:PoshHgSettings.GetBookmarkStatus)) {
     if ($status) {
         $s = $global:PoshHgSettings
        
@@ -12,47 +20,55 @@ function Write-HgStatus($status = (get-hgStatus)) {
           $branchFg = $s.Branch2ForegroundColor
           $branchBg = $s.Branch2BackgroundColor
         }
+
+        if ($status.MultipleHeads) {
+          $branchFg = $s.Branch3ForegroundColor
+          $branchBg = $s.Branch3BackgroundColor
+        }
        
-        Write-Host $s.BeforeText -NoNewline -BackgroundColor $s.BeforeBackgroundColor -ForegroundColor $s.BeforeForegroundColor
-        Write-Host $status.Branch -NoNewline -BackgroundColor $branchBg -ForegroundColor $branchFg
+        Write-Prompt $s.BeforeText -BackgroundColor $s.BeforeBackgroundColor -ForegroundColor $s.BeforeForegroundColor
+        Write-Prompt $status.Branch -BackgroundColor $branchBg -ForegroundColor $branchFg
         
         if($status.Added) {
-          Write-Host " +$($status.Added)" -NoNewline -BackgroundColor $s.AddedBackgroundColor -ForegroundColor $s.AddedForegroundColor
+          Write-Prompt "$($s.AddedStatusPrefix)$($status.Added)" -BackgroundColor $s.AddedBackgroundColor -ForegroundColor $s.AddedForegroundColor
         }
         if($status.Modified) {
-          Write-Host " ~$($status.Modified)" -NoNewline -BackgroundColor $s.ModifiedBackgroundColor -ForegroundColor $s.ModifiedForegroundColor
+          Write-Prompt "$($s.ModifiedStatusPrefix)$($status.Modified)" -BackgroundColor $s.ModifiedBackgroundColor -ForegroundColor $s.ModifiedForegroundColor
         }
         if($status.Deleted) {
-          Write-Host " -$($status.Deleted)" -NoNewline -BackgroundColor $s.DeletedBackgroundColor -ForegroundColor $s.DeletedForegroundColor
+          Write-Prompt "$($s.DeletedStatusPrefix)$($status.Deleted)" -BackgroundColor $s.DeletedBackgroundColor -ForegroundColor $s.DeletedForegroundColor
         }
         
         if ($status.Untracked) {
-          Write-Host " ?$($status.Untracked)" -NoNewline -BackgroundColor $s.UntrackedBackgroundColor -ForegroundColor $s.UntrackedForegroundColor
+          Write-Prompt "$($s.UntrackedStatusPrefix)$($status.Untracked)" -BackgroundColor $s.UntrackedBackgroundColor -ForegroundColor $s.UntrackedForegroundColor
         }
         
         if($status.Missing) {
-           Write-Host " !$($status.Missing)" -NoNewline -BackgroundColor $s.MissingBackgroundColor -ForegroundColor $s.MissingForegroundColor
+           Write-Prompt "$($s.MissingStatusPrefix)$($status.Missing)" -BackgroundColor $s.MissingBackgroundColor -ForegroundColor $s.MissingForegroundColor
         }
 
         if($status.Renamed) {
-           Write-Host " ^$($status.Renamed)" -NoNewline -BackgroundColor $s.RenamedBackgroundColor -ForegroundColor $s.RenamedForegroundColor
+           Write-Prompt "$($s.RenamedStatusPrefix)$($status.Renamed)" -BackgroundColor $s.RenamedBackgroundColor -ForegroundColor $s.RenamedForegroundColor
         }
 
-        if($s.ShowTags -and $status.Tags.Length) {
+        if($s.ShowTags -and ($status.Tags.Length -or $status.ActiveBookmark.Length)) {
           write-host $s.BeforeTagText -NoNewLine
+            
+          if($status.ActiveBookmark.Length) {
+              Write-Prompt $status.ActiveBookmark -ForegroundColor $s.BranchForegroundColor -BackgroundColor $s.TagBackgroundColor 
+              if($status.Tags.Length) {
+                Write-Prompt " " -ForegroundColor $s.TagSeparatorColor -BackgroundColor $s.TagBackgroundColor
+              }
+          }
          
           $tagCounter=0
           $status.Tags | % {
             $color = $s.TagForegroundColor
-            
-            if($_.Trim() -eq $status.ActiveBookmark) {
-                $color = $s.BranchForegroundColor
-            }
                 
-              write-host $_ -NoNewLine -ForegroundColor $color -BackgroundColor $s.TagBackgroundColor 
+              Write-Prompt $_ -ForegroundColor $color -BackgroundColor $s.TagBackgroundColor 
           
               if($tagCounter -lt ($status.Tags.Length -1)) {
-                write-host ", " -NoNewLine -ForegroundColor $s.TagSeparatorColor -BackgroundColor $s.TagBackgroundColor
+                Write-Prompt ", " -ForegroundColor $s.TagSeparatorColor -BackgroundColor $s.TagBackgroundColor
               }
               $tagCounter++;
           }        
@@ -66,23 +82,34 @@ function Write-HgStatus($status = (get-hgStatus)) {
             $patchCounter = 0
             
             $patches.Applied | % {
-              write-host $_ -NoNewLine -ForegroundColor $s.AppliedPatchForegroundColor -BackgroundColor $s.AppliedPatchBackgroundColor
+              Write-Prompt $_ -ForegroundColor $s.AppliedPatchForegroundColor -BackgroundColor $s.AppliedPatchBackgroundColor
               if($patchCounter -lt ($patches.All.Length -1)) {
-                write-host $s.PatchSeparator -NoNewLine -ForegroundColor $s.PatchSeparatorColor
+                Write-Prompt $s.PatchSeparator -ForegroundColor $s.PatchSeparatorColor
               }
               $patchCounter++;
             }
             
             $patches.Unapplied | % {
-               write-host $_ -NoNewLine -ForegroundColor $s.UnappliedPatchForegroundColor -BackgroundColor $s.UnappliedPatchBackgroundColor
+               Write-Prompt $_ -ForegroundColor $s.UnappliedPatchForegroundColor -BackgroundColor $s.UnappliedPatchBackgroundColor
                if($patchCounter -lt ($patches.All.Length -1)) {
-                  write-host $s.PatchSeparator -NoNewLine -ForegroundColor $s.PatchSeparatorColor
+                  Write-Prompt $s.PatchSeparator -ForegroundColor $s.PatchSeparatorColor
                }
                $patchCounter++;
             }
           }
         }
         
-       Write-Host $s.AfterText -NoNewline -BackgroundColor $s.AfterBackgroundColor -ForegroundColor $s.AfterForegroundColor
+       Write-Prompt $s.AfterText -BackgroundColor $s.AfterBackgroundColor -ForegroundColor $s.AfterForegroundColor
     }
+}
+
+# Should match https://github.com/dahlbyk/posh-git/blob/master/GitPrompt.ps1
+if((Get-Variable -Scope Global -Name VcsPromptStatuses -ErrorAction SilentlyContinue) -eq $null) {
+    $Global:VcsPromptStatuses = @()
+}
+function Global:Write-VcsStatus { $Global:VcsPromptStatuses | foreach { & $_ } }
+
+# Add scriptblock that will execute for Write-VcsStatus
+$Global:VcsPromptStatuses += {
+    Write-HgStatus
 }

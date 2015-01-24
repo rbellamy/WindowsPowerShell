@@ -1,4 +1,5 @@
 $script:hgCommands = @()
+$script:hgflowStreams = @()
 
 function HgTabExpansion($lastBlock) {
   switch -regex ($lastBlock) { 
@@ -12,7 +13,7 @@ function HgTabExpansion($lastBlock) {
    #handles hg update <branch name>
    #handles hg merge <branch name>
    'hg (up|update|merge|co|checkout) (\S*)$' {
-      findBranchOrBookmark($matches[2])
+      findBranchOrBookmarkOrTags($matches[2])
    }
        
    #Handles hg pull -B <bookmark>   
@@ -33,7 +34,9 @@ function HgTabExpansion($lastBlock) {
     
     #Handles hg push <path>
     #Handles hg pull <path>
-    'hg (push|pull) (-\S* )*(\S*)$' {
+    #Handles hg outgoing <path>
+    #Handles hg incoming <path>
+    'hg (push|pull|outgoing|incoming) (-\S* )*(\S*)$' {
       hgRemotes($matches[3])
     }
     
@@ -67,11 +70,22 @@ function HgTabExpansion($lastBlock) {
     'hg commit (\S* )*-(I|X) (\S*)$' {
       hgFiles $matches[3] 'M|A|R|!'
     }    
+    
+    #handles hg flow * <branch name>
+    'hg flow (feature|release|hotfix|support) (\S*)$' {
+      findBranchOrBookmarkOrTags($matches[1]+"/"+$matches[2])
+    }
+    
+    #handles hg flow *
+    'hg flow (\S*)$' {
+      hgflowStreams($matches[1])
+      hgLocalBranches($matches[1])
+    }
   }
 }
 
 function hgFiles($filter, $pattern) {
-   hg status | 
+   hg status $(hg root) | 
     foreach { 
       if($_ -match "($pattern){1} (.*)") { 
         $matches[2] 
@@ -134,13 +148,27 @@ function PopulateHgCommands() {
   $script:hgCommands = $hgCommands
 }
 
-function findBranchOrBookmark($filter){
+function findBranchOrBookmarkOrTags($filter){
     hgLocalBranches($filter)
+	hgLocalTags($filter)
     hgLocalBookmarks($filter)
 }
 
 function hgLocalBranches($filter) {
   hg branches -a | foreach {
+    if($_ -match "(\S+) .*") {
+      if($filter -and $matches[1].StartsWith($filter)) {
+        $matches[1]
+      }
+      elseif(-not $filter) {
+        $matches[1]
+      }
+    }
+  }
+}
+
+function hgLocalTags($filter) {
+  hg tags | foreach {
     if($_ -match "(\S+) .*") {
       if($filter -and $matches[1].StartsWith($filter)) {
         $matches[1]
@@ -164,7 +192,7 @@ function bookmarkName($bookmark) {
 }
 
 function hgLocalBookmarks($filter) {
-  hg bookmarks | foreach {
+  hg bookmarks --quiet | foreach {
     if($_ -match "(\S+) .*") {
       $bookmark = bookmarkName($matches[0])  
       if($filter -and $bookmark.StartsWith($filter)) {
@@ -224,4 +252,80 @@ function thgCommands($filter) {
   }
   
   $cmdList | sort 
+}
+
+function hgflowStreams($filter) {
+  if($script:hgflowStreams.Length -eq 0) {
+    $hgflow = ((hg root) + "\.flow")
+    if (Test-Path $hgflow) {
+      populatehgflowStreams($hgflow)
+    } else {
+      $hgflow = ((hg root) + "\.hgflow")
+      if (Test-Path $hgflow) {
+        populatehgflowStreams($hgflow)
+      }
+    }
+    
+    $script:hgflowStreams = $script:hgflowStreams
+  }
+  
+  if($filter) {
+     $hgflowStreams | ? { $_.StartsWith($filter) } | % { $_.Trim() } | sort  
+  }
+  else {
+    $hgflowStreams | % { $_.Trim() } | sort
+  }
+}
+
+function populatehgflowStreams($filename) {
+  $ini = @{}
+  
+  switch -regex -file $filename
+  {
+    "^\[(.+)\]" # Section
+    {
+      $section = $matches[1]
+      $ini[$section] = @()
+    }
+    "(.+?)\s*=(.*)" # Key
+    {
+      $name,$value = $matches[1..2]
+      $ini[$section] += $name
+    }
+  }
+  
+  # Supporting by 0.4 and 0.9 files
+  $script:hgflowStreams = if ($ini["Basic"]) { $ini["Basic"] } else { $ini["branchname"] }
+}
+
+$PowerTab_RegisterTabExpansion = Get-Command Register-TabExpansion -Module powertab -ErrorAction SilentlyContinue
+if ($PowerTab_RegisterTabExpansion)
+{
+    & $PowerTab_RegisterTabExpansion "hg.exe" -Type Command {
+        param($Context, [ref]$TabExpansionHasOutput, [ref]$QuoteSpaces)  # 1:
+
+        $line = $Context.Line
+        $lastBlock = [regex]::Split($line, '[|;]')[-1].TrimStart()
+        $TabExpansionHasOutput.Value = $true
+        HgTabExpansion $lastBlock
+    }
+    return
+}
+
+if (Test-Path Function:\TabExpansion) {
+    Rename-Item Function:\TabExpansion TabExpansionBackup
+}
+
+
+# Set up tab expansion and include hg expansion
+function TabExpansion($line, $lastWord) {
+   $lastBlock = [regex]::Split($line, '[|;]')[-1]
+
+   switch -regex ($lastBlock) {
+        "^$(Get-AliasPattern hg) (.*)" { HgTabExpansion $lastBlock }
+        "^$(Get-AliasPattern tgh) (.*)" { HgTabExpansion $lastBlock }
+
+        # Fall back on existing tab expansion
+        default { if (Test-Path Function:\TabExpansionBackup) { TabExpansionBackup $line $lastWord } }
+   }
 }

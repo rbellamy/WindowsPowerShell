@@ -1,6 +1,9 @@
 [submodule "Modules/posh-git"]
-	path = Modules/posh-git
-	url = git://github.com/dahlbyk/posh-git.git
-[submodule ".\\Modules\\posh-flow"]
-	path = .\\Modules\\posh-flow
+  path = Modules/posh-git
+  url = git://github.com/dahlbyk/posh-git.git
+[submodule "Modules/posh-hg"]
+  path = Modules/posh-hg
+  url = git://github.com/JeremySkinner/posh-hg.git
+[submodule "Modules/posh-flow"]
+	path = Modules/posh-flow
 	url = git@github.com:rbellamy/posh-flow.git

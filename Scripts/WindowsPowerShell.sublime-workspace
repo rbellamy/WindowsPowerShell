@@ -1,0 +1,1365 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"top",
+				"top_category"
+			],
+			[
+				"cat",
+				"cat_ID"
+			],
+			[
+				"var_dump",
+				"var_dump_ob"
+			],
+			[
+				"au",
+				"auctions"
+			],
+			[
+				"li",
+				"link	Tag"
+			],
+			[
+				"tran",
+				"transmissionrpc"
+			],
+			[
+				"VOI",
+				"VOIP_HOSTS_map"
+			],
+			[
+				"class-VOIP",
+				"class-VOIP-HOSTS"
+			],
+			[
+				"LAM",
+				"LAMASSU_map"
+			],
+			[
+				"class",
+				"class-VOIP"
+			],
+			[
+				"cla",
+				"class-map"
+			],
+			[
+				"voi",
+				"voip_qos_policy"
+			],
+			[
+				"pol",
+				"policy-map"
+			],
+			[
+				"out",
+				"outside_policy"
+			],
+			[
+				"xo",
+				"xorg"
+			],
+			[
+				"sub",
+				"sublime-cisco-snippets"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "Searching 129 files for \"NetworkStatistics\" (case sensitive)\n\nD:\\Development\\WindowsPowerShell\\Scripts\\Get-NetworkStatistics.ps1:\n    1: function Get-NetworkStatistics\n    2  {\n    3  	[OutputType('System.Management.Automation.PSObject')]\n    .\n  155  \n  156  .EXAMPLE\n  157: 	Get-NetworkStatistics\n  158  \n  159  .EXAMPLE\n  160: 	Get-NetworkStatistics iexplore\n  161  \n  162  .EXAMPLE\n  163: 	Get-NetworkStatistics -ProcessName md* -Protocol tcp \n  164  \n  165  .EXAMPLE\n  166: 	Get-NetworkStatistics -Address 192* -State LISTENING \n  167  \n  168  .EXAMPLE\n  169: 	Get-NetworkStatistics -State LISTENING -Protocol tcp\n  170  \n  171  .OUTPUTS\n  ...\n  178  }\n  179  \n  180: help Get-NetworkStatistics\n\n7 matches in 1 file\n",
+			"settings":
+			{
+				"buffer_size": 721,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "Get-NetworkStatistics.ps1",
+			"settings":
+			{
+				"buffer_size": 6257,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Test-SystemOrRootDirectory.ps1",
+			"settings":
+			{
+				"buffer_size": 759,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Test-Member.ps1",
+			"settings":
+			{
+				"buffer_size": 1301,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Update-GAC.ps1",
+			"settings":
+			{
+				"buffer_size": 556,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "vsvars.ps1",
+			"settings":
+			{
+				"buffer_size": 812,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "webdev.ps1",
+			"settings":
+			{
+				"buffer_size": 1115,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "aliases.ps1",
+			"settings":
+			{
+				"buffer_size": 2601,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "append-path-perm.ps1",
+			"settings":
+			{
+				"buffer_size": 149,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "add-bcd-vhd.ps1",
+			"settings":
+			{
+				"buffer_size": 1103,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "PssDiag.ps1",
+			"settings":
+			{
+				"buffer_size": 3257,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "pssql-smo.ps1",
+			"settings":
+			{
+				"buffer_size": 1468,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "pssql.ps1",
+			"settings":
+			{
+				"buffer_size": 1057,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Rename-Project.ps1",
+			"settings":
+			{
+				"buffer_size": 1103,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/Development/WindowsPowerShell/_profile.ps1",
+			"settings":
+			{
+				"buffer_size": 4077,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/D/Development/WindowsPowerShell/link.cmd",
+			"settings":
+			{
+				"buffer_size": 163,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "Get-FrameworkVersions.ps1",
+			"settings":
+			{
+				"buffer_size": 1135,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 81.0,
+		"selected_items":
+		[
+			[
+				"indend",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"inde",
+				"Indentation: Convert to Spaces"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Discover Packages"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"format",
+				"Format Code"
+			],
+			[
+				"java",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
+			[
+				"upda",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"up",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"htm",
+				"Tidy HTML"
+			],
+			[
+				"tidy",
+				"Tidy PHP"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"tid",
+				"Tidy CSS (Low Compression)"
+			],
+			[
+				"php",
+				"Tidy PHP"
+			],
+			[
+				"html",
+				"Tidy HTML"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: List",
+				"Package Control: List Packages"
+			],
+			[
+				"Package Control: In",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: Remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: Rem",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: E",
+				"Package Control: Enable Package"
+			],
+			[
+				"Package Control: Upd",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: List Packages"
+			],
+			[
+				"Package Control: ad",
+				"Package Control: Add Repository"
+			],
+			[
+				"Package Control: up",
+				"Package Control: Upgrade Package"
+			],
+			[
+				"set",
+				"Set Syntax: XML"
+			],
+			[
+				"replace",
+				"Reg Replace: RegEx Input Sequencer"
+			],
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"xml",
+				"XML Lint: Show Error List"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: inst",
+				"Package Control: Install Package"
+			],
+			[
+				"Snippet: ",
+				"Snippet: Cisco-acl"
+			],
+			[
+				"Package Control: A",
+				"Package Control: Add Repository"
+			],
+			[
+				"Package Control: Add",
+				"Package Control: Add Repository"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 125.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/D/Development/WindowsPowerShell/Scripts/WindowsPowerShell.sublime-project",
+		"/D/Development/Terradatum/aergo/aergo-server/conf/shscripts/eagercache.sh",
+		"/D/Development/Terradatum/aergo/adageo/.hgignore",
+		"/D/Development/Terradatum/aergo/aergo.sublime-project",
+		"/C/Users/rbellamy/AppData/Roaming/Sublime Text 3/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/Users/rbellamy/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/rbellamy/AppData/Roaming/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/C/Users/rbellamy/AppData/Roaming/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/D/mongodb/log/mongo.log",
+		"/D/Development/revoquip/wp-content/themes/revoquip/style1.css",
+		"/D/Development/revoquip/wp-content/plugins/wp-auctions/wp_auctions.php",
+		"/C/Users/rbellamy/AppData/Roaming/Sublime Text 2/Packages/SFTP/Default (Windows).sublime-keymap",
+		"/D/Development/revoquip/wp-config.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/category-winery.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/category-brewery.php",
+		"/C/Users/rbellamy/AppData/Roaming/Sublime Text 2/Packages/SFTP/SFTP.sublime-settings",
+		"/C/Users/rbellamy/AppData/Roaming/Sublime Text 2/Packages/User/SFTP.sublime-settings",
+		"/D/Development/revoquip/wp-content/themes/revoquip/style.css",
+		"/D/Development/revoquip/wp-content/themes/revoquip/languages/wavemaker.pot",
+		"/D/Development/revoquip/wp-content/themes/revoquip/loop-attachment.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/loop-page.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/loop-single.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/loop.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/search.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/sidebar-home.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/sidebar-original2010.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/sidebar-winery.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/tag.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/category.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/comments.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/functions.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/header.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/404.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/archive.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/author.php",
+		"/D/Development/revoquip/includes/jQuerySlideshow/RevoQuip.js",
+		"/D/Development/revoquip/wp-content/themes/revoquip/languages/twentyten.pot",
+		"/D/Development/revoquip/.hgignore",
+		"/D/Development/revoquip/wp-content/themes/revoquip/footer.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/index.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/loop-home.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/rtl.css",
+		"/D/Development/revoquip/wp-content/themes/revoquip/onecolumn-page.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/page.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/sidebar-about-us.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/sidebar-brewery.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/sidebar-contact-us.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/sidebar-footer.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/sidebar-legal.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/sidebar-our-service.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/sidebar-product.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/sidebar-terms.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/sidebar-warranty.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/sidebar-we-buy.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/sidebar.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/single.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/attachment.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/editor-style-rtl.css",
+		"/D/Development/revoquip/wp-content/themes/revoquip/editor-style.css",
+		"/D/oracle/product/11.2.0/client_1/sqldeveloper/ide/bin/ide.conf",
+		"/C/ProgramData/Microsoft/Windows/Start Menu/Programs/Oracle - OraClient11g_home1/Application Development/SQL Developer.lnk",
+		"/D/Development/revoquip/wp-content/themes/revoquip/page-warranty.php",
+		"/D/Development/revoquip/wp-content/themes/revoquip/page-brewery.php",
+		"/D/Development/revoquip/sftp-config.json",
+		"/C/Users/rbellamy/AppData/Roaming/Sublime Text 2/Packages/SideBarEnhancements/Default (Windows).sublime-keymap",
+		"/C/Users/rbellamy/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
+		"/C/Users/rbellamy/AppData/Roaming/Sublime Text 2/Packages/SideBarEnhancements/Side Bar.sublime-settings",
+		"/C/Users/rbellamy/AppData/Roaming/Sublime Text 2/Packages/SideBarEnhancements/messages/11.13.2012.1305.0.txt",
+		"/C/Users/rbellamy/AppData/Roaming/Sublime Text 2/Packages/CSSTidy/CSSTidy.sublime-settings",
+		"/C/Users/rbellamy/Downloads/template1.tpl",
+		"/D/Development/revoquip/wp-content/themes/revoquip/style-wpauctions.css",
+		"/D/Development/revoquip/wp-admin/options.php",
+		"/C/Users/rbellamy/AppData/Roaming/Sublime Text 2/Packages/User/sftp_servers/conveyor.json",
+		"/C/Users/rbellamy/AppData/Roaming/Sublime Text 2/Packages/PhpTidy/PhpTidy.sublime-settings",
+		"/C/Users/rbellamy/AppData/Roaming/Sublime Text 2/Packages/User/SFTP.errors.log",
+		"/C/Users/rbellamy/Documents/Insync/rbellamy@terradatum.com/web/remax.html",
+		"/C/Users/rbellamy/Documents/Insync/rbellamy@terradatum.com/mv/agent_mv.html",
+		"/C/Users/rbellamy/Downloads/Diane_Jacobson_OSX_Laptop.tx",
+		"/C/Users/rbellamy/Downloads/BrokerMetrics_InstallLog (1).log",
+		"/C/Users/rbellamy/Downloads/BrokerMtrics.stderr",
+		"/D/Development/RED/Export/src/Export/Export.ps1",
+		"/D/Development/Terradatum/components/.hg/hgrc",
+		"/C/Users/rbellamy/Downloads/config.yml",
+		"/C/Users/rbellamy/Documents/Insync/rbellamy@terradatum.com/web/team.html",
+		"/D/Development/Terradatum/Kiln-Extensions/.hg/hgrc",
+		"/C/Users/rbellamy/Downloads/libraryupdater.sh",
+		"/C/Users/rbellamy/Downloads/id_rsa.pub",
+		"/C/Users/rbellamy/Downloads/alice_set_command.txt",
+		"/C/Users/rbellamy/Downloads/dir.txt",
+		"/C/Users/rbellamy/Downloads/export.dsv",
+		"/C/MLSUP/rel/2F048E98-51650256FC80.xml",
+		"/C/MLSUP/rdbms/MLSUP_RDBMSSites.xml",
+		"/C/Users/rbellamy/Documents/Insync/rbellamy@terradatum.com/cmm-annual-cc2-and-cc3.csv",
+		"/C/MLSUP/dl_settings.xml",
+		"/G/Autorun.inf",
+		"/G/globdata.ini",
+		"/D/Development/archblocks/blocks/common/init_systemd.sh",
+		"/D/Development/archblocks/archblocks.sublime-workspace",
+		"/D/Development/archblocks/README.md",
+		"/D/Development/archblocks/blocks/filesystem/gpt_luks_passphrase_ext4.sh",
+		"/D/Development/archblocks/install_uruk.sh",
+		"/D/Development/archblocks/blocks/common/install_pacstrap.sh",
+		"/D/Development/archblocks/blocks/common/locale_default.sh",
+		"/D/Development/archblocks/blocks/common/postflight_rootpass.sh",
+		"/D/Development/archblocks/blocks/common/postflight_sudouser.sh",
+		"/D/Development/archblocks/blocks/common/time_ntp_utc.sh",
+		"/D/Development/archblocks/blocks/common/time_chrony_utc.sh",
+		"/D/Development/archblocks/blocks/common/sensors_default.sh",
+		"/D/Development/archblocks/blocks/common/ramdisk_default.sh",
+		"/D/Development/archblocks/blocks/common/power_acpi.sh",
+		"/D/Development/archblocks/blocks/hardware/laptop/lenovo_thinkpad_t420.sh",
+		"/D/Development/archblocks/blocks/network/wired_wireless_minimal.sh",
+		"/D/Development/archblocks/blocks/network/wired_wireless_default.sh",
+		"/D/Development/archblocks/blocks/video/video_intel.sh",
+		"/D/Development/archblocks/blocks/xorg/mesa_dri.sh",
+		"/D/Development/archblocks/blocks/xorg/xorg_wacom.sh",
+		"/D/Development/archblocks/blocks/xorg/xorg_synaptics.sh",
+		"/D/Development/archblocks/blocks/xorg/xorg_fonts_infinality.sh",
+		"/D/Development/archblocks/dev_full.sh",
+		"/D/Development/archblocks/blocks/bootloader/efi_gummiboot.sh",
+		"/D/Development/archblocks/blocks/appsets/phc_test.sh",
+		"/D/Development/archblocks/blocks/appsets/gvim_basics.sh",
+		"/D/Development/sublime-cisco-syntax/Cisco Definitions.json-tmLanguage",
+		"/C/Users/rbellamy/AppData/Roaming/Sublime Text 2/Packages/User/Package Control.sublime-settings",
+		"/D/Development/RED/Export/src/Database/Listings.xml",
+		"/D/Development/RED/Export/src/Database/Listings.xsd",
+		"/D/Development/RED/Export/src/Database/Listings.cs",
+		"/D/Development/AutoMapper/src/UnitTests/UnitTests.WP8.csproj"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"",
+			"D:\\Development\\revoquip\\wp-content\\plugins\\wp-auctions",
+			"D:\\Development\\revoquip\\wp-content\\themes\\revoquip",
+			"D:\\Development\\revoquip",
+			"D:\\Development\\revoquip\\wp-content\\themes\\revoquip",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": true,
+		"find_history":
+		[
+			"State",
+			"Listen",
+			"NetworkStatistics",
+			"textbox",
+			"#hentry",
+			"#content",
+			"hentry",
+			"#hentry",
+			".hentry",
+			"entry-content",
+			"entry",
+			"700",
+			"clearfix",
+			"WPAoverideCSS",
+			"wp_enqueue_script",
+			"overrid",
+			"style",
+			"echo",
+			"var_dump",
+			"age",
+			"time",
+			"twentyten",
+			"preloading.gif",
+			"media",
+			"http",
+			"http://wordpress.org/",
+			"http",
+			"(http://wavyworld.com/exclusive/cooluris-wp/media",
+			"cooluris-wp",
+			"(http://wavyworld.com/exclusive/cooluris-wp/media",
+			"http",
+			"(http://conveyor.users.sonic.net/revoquip-dev/media",
+			"(http://revoquip.com/media",
+			"(http://conveyor.users.sonic.net/revoquip-dev/media/revo-images",
+			"(http://revoquip.com/media/revo-images",
+			"(../../revo-images",
+			"http://conveyor.users.sonic.net/revoquip-dev",
+			"http://revoquip.com/media",
+			"Revoquip Stage 1",
+			"Twenty Ten",
+			"Twenty Ten 1.0",
+			"Twenty_Ten",
+			"If you're looking for quality winery ",
+			"cat_id",
+			"salva_meta_whoami",
+			"Revo-",
+			"Revo-Top-Nav",
+			"topNavigation",
+			"toNavigation",
+			"style",
+			"Stage 1",
+			"indent",
+			"&reg;",
+			"height: 380px;",
+			"height: 360px;",
+			"height: 360px",
+			"width: 375px;",
+			"375px",
+			"width: 365px;",
+			"padding: 8px; ",
+			"height: 52px;",
+			"height: 35px;",
+			"height: 62px;",
+			"height: 342px;",
+			"bottom",
+			"bottom: 0;",
+			"border: 2px solid;",
+			"border",
+			"bottom: 0;",
+			"50px",
+			"25px",
+			" overflow: hidden;",
+			"12t",
+			"p>",
+			"<p",
+			"center",
+			"exist",
+			"transmissionrpc",
+			"reg",
+			"NCMAEXCHANGE",
+			"NCMAEXCHANGE_map",
+			"shap",
+			"\n",
+			"),(",
+			"<LABEL-UUID>",
+			"TV Shows",
+			"      force:",
+			"tvshows",
+			"APIKEY",
+			"TV Shows",
+			"      force:",
+			"tvshows",
+			"preset",
+			"/usb/",
+			"-n ",
+			"CUSTOMER_SID\n------------\n       ",
+			"188",
+			"POSTSCRIPT",
+			"install",
+			"post_install",
+			"post",
+			"[ -e",
+			"video",
+			"cat >",
+			"<< EOF",
+			"MODULES",
+			"init_systemd",
+			"_systemd",
+			"INIT_MODE",
+			"systemd",
+			"systemd_pure",
+			"init_systemd",
+			"_systemd",
+			"systemd",
+			"sysvcompat",
+			"vconsole",
+			"_filesystem_post_chroot",
+			"KERNEL_PARAMS",
+			"vconsole",
+			"cryptdevice",
+			"init",
+			"component",
+			"dest",
+			"component",
+			".tmp",
+			"css",
+			"dist",
+			"component"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"wavemaker",
+			"http://wavyworld.com",
+			"(../../../media",
+			"(../../../revo-images",
+			"../..",
+			"",
+			"Wavemaker 1.0",
+			"Wavemaker",
+			"Wavemaker 1.0",
+			"Wavemaker",
+			"",
+			"bottom: 0;",
+			"div>",
+			"<div",
+			"%'\nor c.name like '%",
+			"%' or c.name like '%",
+			"\",\"",
+			"),\n	(",
+			"media-edd59731-e192-43ec-925f-9a0f306f6854",
+			"TV",
+			"37db649d4babcc7c871ce6d6be9ba433",
+			"TV",
+			"/<LABEL-UUID>/",
+			"",
+			",",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 13,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 721,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										150,
+										167
+									],
+									[
+										281,
+										298
+									],
+									[
+										335,
+										352
+									],
+									[
+										398,
+										415
+									],
+									[
+										484,
+										501
+									],
+									[
+										570,
+										587
+									],
+									[
+										682,
+										699
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								688,
+								688
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"incomplete_sync": null,
+							"line_numbers": false,
+							"output_tag": 1,
+							"remote_loading": false,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"synced": false,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "Get-NetworkStatistics.ps1",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6257,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								6257
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PowerShell/Support/PowershellSyntax.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "Test-SystemOrRootDirectory.ps1",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 759,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PowerShell/Support/PowershellSyntax.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "Test-Member.ps1",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1301,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PowerShell/Support/PowershellSyntax.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "Update-GAC.ps1",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 556,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PowerShell/Support/PowershellSyntax.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "vsvars.ps1",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 812,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PowerShell/Support/PowershellSyntax.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "webdev.ps1",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1115,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PowerShell/Support/PowershellSyntax.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "aliases.ps1",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2601,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PowerShell/Support/PowershellSyntax.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "append-path-perm.ps1",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 149,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PowerShell/Support/PowershellSyntax.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "add-bcd-vhd.ps1",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1103,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PowerShell/Support/PowershellSyntax.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "PssDiag.ps1",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3257,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PowerShell/Support/PowershellSyntax.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 456.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "pssql-smo.ps1",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1468,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PowerShell/Support/PowershellSyntax.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "pssql.ps1",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1057,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PowerShell/Support/PowershellSyntax.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "Rename-Project.ps1",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1103,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								475,
+								475
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PowerShell/Support/PowershellSyntax.tmLanguage",
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "/D/Development/WindowsPowerShell/_profile.ps1",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4077,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								930,
+								930
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PowerShell/Support/PowershellSyntax.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "/D/Development/WindowsPowerShell/link.cmd",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 163,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								87,
+								87
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "Get-FrameworkVersions.ps1",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1135,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"remote_loading": false,
+							"synced": false,
+							"syntax": "Packages/PowerShell/Support/PowershellSyntax.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.sftp":
+	{
+		"height": 489.0
+	},
+	"project": "WindowsPowerShell.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/D/Development/archblocks/blocks/bootloader/export.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 272.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
